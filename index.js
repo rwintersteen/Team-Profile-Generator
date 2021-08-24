@@ -24,7 +24,7 @@ function teamQuestions() {
                     {
                         type: 'input',
                         message: "What is the dentist's Employee ID number?",
-                        name: 'hygienistId',
+                        name: 'dentistId',
                     },
                     {
                         type: 'input',
