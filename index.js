@@ -37,7 +37,7 @@ function teamQuestions() {
                         name: 'dentistOffice',
                     },
                 ]).then(answers => {
-                    const dentist = new Dentist(answers.dentistName, answers.dentistEmail, answers.dentistOfficeNumber, answers.dentistCredential)
+                    const dentist = new Dentist(answers.dentistName, answers.dentistId, answers.dentistEmail, answers.dentistOffice)
                     teamMembers.push(dentist)
                     createTeam()
                 })
