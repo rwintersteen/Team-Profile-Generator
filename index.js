@@ -1,89 +1,133 @@
-// get employee info
+const inquirer = require('inquirer');
+const fs = require('fs');
+const Dentist = require('./lib/Dentist');
+const DentalHygienist = require('./lib/DentalHygeinst');
+const DentalAssistant = require('./lib/DentalAssistant');
+const path = require('path');
 
-// classes:
+const OUTPUT_DIR=path.resolve(__dirname, 'output');
+const outputPath = path.join(OUTPUT_DIR, 'team.HTML');
+const render = require('./source/generateHTML');
 
-class Employee {
-    constructor(name, email, id){
-        this.name = name;
-        this.email = email;
-        this.id = id;
+const teamMembers = [];
 
-    }
+function teamQuestions() {
+function createDentist() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: "What is the dentist's name?",
+                name: dentistName,
+            },
+            {
+                type: 'input',
+                message: "What is the dentist's email?",
+                name: dentistEmail,
+            },
+            {
+                type: 'input',
+                message: "What is the dentist's office number?",
+                name: dentistOfficeNumber,
+            },
+            {
+                type: 'input',
+                message: "What is the dentist's credential?",
+                name: dentistCredential,
+            }
+        ]) .then(answers => {
+            const dentist = new Dentist(answers.dentistName, answers.dentistEmail, answers.dentistOfficeNumber, answers.dentistCredential)
+            teamMembers.push(dentist)
+            createTeam()
+        })
+        function createTeam(){
+            inquirer.prompt([
+                {
+                    type: 'list',
+                    name: 'memberChoice',
+                    message: "Which type of team member would you like to add?",
+                    choices: [
+                        "Dental Hygienist",
+                        "Dental Assistant",
+                        "Done adding team members"
+                    ]
+                }
+            ]).then(userChoice => {
+                if (userChoice.memberChoice === "Dental Hygienist") {
+                    addDentalHygienist()
+                } else if (userChoice.memberChoice === "Dental Assistant") {
+                    addDentalAssistant()
+                } else {
+                    buildTeam()
+                }
+            });
+        }
+        function addDentalHygienist() {
+            inquirer
+                .prompt([
+                    {
+                        type: 'input',
+                        message: "What is the dental hygienist's name?",
+                        name: 'hygienistName',
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the dental hygienist's ID?",
+                        name: 'hygienistId',
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the dental hygienist's email?",
+                        name: 'hygienistEmail',
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the dental hygienist's home office?",
+                        name: 'hygienistOffice',
+                    },
+                ]).then(answers => {
+                    const dentalHygienist = new DentalHygienist(answers.hygienistName, answers.hygienistId, answers.hygienistEmail, answers.hygienistOffice)
+                    teamMembers.push(dentalHygienist)
+                    createTeam()
+                })
+        }
+        function addDentalAssistant() {
+            inquirer
+                .prompt([
+                    {
+                        type: 'input',
+                        message: "What is the dental assistant's name?",
+                        name: 'assistantName',
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the dental assistant's ID?",
+                        name: 'assistantId',
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the dental assistant's email?",
+                        name: 'assistantEmail',
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the dental assistant's home office?",
+                        name: 'assistantOffice',
+                    },
+                ]).then(answers => {
+                    const dentalAssistant = new DentalAssistant(answers.assistantName, answers.assistantId, answers.assistantEmail, answers.assistantOffice)
+                    teamMembers.push(dentalAssistant)
+                    createTeam()
+                })
+        }
 }
 
-class Team {
-    constructor(){
-        manager = '';
-        engineer = [];
-        intern = [];
-    };
-    promptForManager(){
-        
+function buildTeam() {
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
     }
-
-}
-
-class Manager extends Employee {
-    constructor(name, email, id, officeNum){
-        super(name, email, id);
-        this.officeNum = officeNum;
+    fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
     }
+    createDentist();
 }
-
-class Engineer extends Employee {
-    constructor(name, email, id, github){
-    super(name, email, id);
-    this.guthub = guthub;
-    }
-}
-
-class Intern extends Employee {
-    constructor(name, email, id, school){
-    super(name, email, id);
-    this.school = school;
-    }
-}
-
-const karen = new Manager('Karen', 'karen@email.com', '123');
-
-
-    // getName()
-
-    // getId()
-
-    // getEmail()
-
-    // getRole()—returns 'Employee'
-
-// The application must include Employee, Manager, Engineer, and Intern classes. The tests for these classes (in the _tests_ directory) must ALL pass.
-
-// The first class is an Employee parent class with the following properties and methods:
-
-
-
-// The other three classes will extend Employee.
-
-// In addition to Employee's properties and methods, Manager will also have the following:
-
-// officeNumber
-
-// getRole()—overridden to return 'Manager'
-
-// In addition to Employee's properties and methods, Engineer will also have the following:
-
-// github—GitHub username
-
-// getGithub()
-
-// getRole()—overridden to return 'Engineer'
-
-// In addition to Employee's properties and methods, Intern will also have the following:
-
-// school
-
-// getSchool()
-
-// getRole()—overridden to return 'Intern'
-
-
-// // 
+    teamQuestions();
