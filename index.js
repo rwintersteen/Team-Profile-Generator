@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Dentist = require('./lib/Dentist');
-const DentalHygienist = require('./lib/DentalHygeinst');
+const DentalHygienist = require('./lib/DentalHygienst');
 const DentalAssistant = require('./lib/DentalAssistant');
 const path = require('path');
 
