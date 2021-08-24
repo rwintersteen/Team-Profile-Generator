@@ -18,8 +18,13 @@ function teamQuestions() {
                 .prompt([
                     {
                         type: 'input',
-                        message: "What is the dentist's name?",
+                        message: "What is the dentist's name? Please include credentials after the name",
                         name: 'dentistName',
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the dentist's Employee ID number?",
+                        name: 'hygienistId',
                     },
                     {
                         type: 'input',
@@ -29,13 +34,8 @@ function teamQuestions() {
                     {
                         type: 'input',
                         message: "What is the dentist's office number?",
-                        name: 'dentistOfficeNumber',
+                        name: 'dentistOffice',
                     },
-                    {
-                        type: 'input',
-                        message: "What is the dentist's credential?",
-                        name: 'dentistCredential',
-                    }
                 ]).then(answers => {
                     const dentist = new Dentist(answers.dentistName, answers.dentistEmail, answers.dentistOfficeNumber, answers.dentistCredential)
                     teamMembers.push(dentist)
@@ -73,7 +73,7 @@ function teamQuestions() {
                     },
                     {
                         type: 'input',
-                        message: "What is the dental hygienist's ID?",
+                        message: "What is the dental hygienist's Employee ID number?",
                         name: 'hygienistId',
                     },
                     {
@@ -102,7 +102,7 @@ function teamQuestions() {
                     },
                     {
                         type: 'input',
-                        message: "What is the dental assistant's ID?",
+                        message: "What is the dental assistant's Employee ID number?",
                         name: 'assistantId',
                     },
                     {

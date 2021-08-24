@@ -9,7 +9,7 @@ const generateDentist = (dentist) => {
         </div>
         </div>
         <div class="card-body">
-            <p class="id">ID: ${dentist.id}</p>
+            <p class="id">Employee ID Number: ${dentist.id}</p>
             <p class="email">Email: <a href="mailto:${dentist.email}">${dentist.email}</a></p>
             <p class="office">Office Number: ${dentist.officeNumber}</p>
         </div>
@@ -24,13 +24,13 @@ const generateDentalHygienist = (hygienist) => {
         <div class="card-header">
         <div class="p-3 mb-2 bg-info text-white">
             <h3>${hygienist.name}</h3>
-            <h4>Dental Hygienist</h4><i class="fas fa-user-friends"></i>
+            <h4>Dental Hygienist</h4><i class="fas fa-tooth"></i>
         </div>
         </div>
         <div class="card-body">
-            <p class="id">ID: ${hygienist.id}</p>
+            <p class="id">Employee ID Number: ${hygienist.id}</p>
             <p class="email">Email: <a href="mailto:${hygienist.email}">${hygienist.email}</a></p>
-            <p class="office">Office Number: ${hygienist.officeNumber}">${hygienist.officeNumber}</a></p>
+            <p class="office">Office Number: ${hygienist.officeNumber}</a></p>
         </div>
     </div>    
     </div>`
@@ -43,13 +43,13 @@ const generateDentalAssistant = (assistant) => {
         <div class="card-header">
         <div class="p-3 mb-2 bg-info text-white">
             <h3>${assistant.name}</h3>
-            <h4>Dental Assistant</h4><i class="fas fa-users"></i>
+            <h4>Dental Assistant</h4><i class="fas fa-user-friends"></i>
         </div>
         </div>
         <div class="card-body">
-            <p class="id">ID: ${assistant.id}</p>
+            <p class="id">Employee ID Number: ${assistant.id}</p>
             <p class="email">Email: <a href="mailto:${assistant.email}">${assistant.email}</a></p>
-            <p class="office">Office Number: ${assistant.officeNumber}">${assistant.officeNumber}</a></p>
+            <p class="office">Office Number: ${assistant.officeNumber}</a></p>
         </div>
     </div>
     </div>`
@@ -88,7 +88,9 @@ const generateTeamPage = function (employeeCards) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dental Team Profile</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital@1&family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/d36c7c889c.js" crossorigin="anonymous"></script>
     </head>
