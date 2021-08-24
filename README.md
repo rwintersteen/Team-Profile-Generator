@@ -44,5 +44,6 @@ You will be able to see the team profile built on the default browser.
 
 Since the app is not published traditionally under Github, please see the video below to see the generator in use!
 
-
+- [Team Profile Generator in the Browser](https://github.com/rwintersteen/Team-Profile-Generator/blob/main/assets/Team%20Profile%20Generator%20Browser.png)
+- [Team Profile Generator, live in Action](https://github.com/rwintersteen/Team-Profile-Generator/blob/main/assets/Team%20Profile%20Generator%20Command%20Line.mp4)
 
