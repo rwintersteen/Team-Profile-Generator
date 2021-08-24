@@ -13,47 +13,46 @@ const generateDentist = (dentist) => {
             <p class="email">Email: <a href="mailto:${dentist.email}">${dentist.email}</a></p>
             <p class="office">Office Number: ${dentist.officeNumber}</p>
         </div>
+    </div>
     </div>`
 };
 
-const generateDentalHygienist = (dentalHygienist) => {
+const generateDentalHygienist = (hygienist) => {
     return `
     <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-header">
-            <div class="p-3 mb-2 bg-info text-white">
-                <h3>${hygienist.name}</h3>
-                <h4>Dental Hygienist</h4><i class="fas fa-user-friends"></i>
-            </div>
-            </div>
-            <div class="card-body">
-                <p class="id">ID: ${hygienist.id}</p>
-                <p class="email">Email: <a href="mailto:${hygienist.email}">${hygienist.email}</a></p>
-                <p class="office">Office Number: ${hygienist.officeNumber}">${hygienist.officeNumber}</a></p>
-            </div>
+    <div class="card h-100">
+        <div class="card-header">
+        <div class="p-3 mb-2 bg-info text-white">
+            <h3>${hygienist.name}</h3>
+            <h4>Dental Hygienist</h4><i class="fas fa-user-friends"></i>
         </div>
-    </div>
-    `
+        </div>
+        <div class="card-body">
+            <p class="id">ID: ${hygienist.id}</p>
+            <p class="email">Email: <a href="mailto:${hygienist.email}">${hygienist.email}</a></p>
+            <p class="office">Office Number: ${hygienist.officeNumber}">${hygienist.officeNumber}</a></p>
+        </div>
+    </div>    
+    </div>`
 };
 
-const generateDentalAssistant = (dentalAssistant) => {
+const generateDentalAssistant = (assistant) => {
     return `
     <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-header">
-            <div class="p-3 mb-2 bg-info text-white">
-                <h3>${assistant.name}</h3>
-                <h4>Dental Assistant</h4><i class="fas fa-users"></i>
-            </div>
-            </div>
-            <div class="card-body">
-                <p class="id">ID: ${assistant.id}</p>
-                <p class="email">Email: <a href="mailto:${assistant.email}">${assistant.email}</a></p>
-                <p class="office">Office Number: ${assistant.officeNumber}">${assistant.officeNumber}</a></p>
-            </div>
+    <div class="card h-100">
+        <div class="card-header">
+        <div class="p-3 mb-2 bg-info text-white">
+            <h3>${assistant.name}</h3>
+            <h4>Dental Assistant</h4><i class="fas fa-users"></i>
+        </div>
+        </div>
+        <div class="card-body">
+            <p class="id">ID: ${assistant.id}</p>
+            <p class="email">Email: <a href="mailto:${assistant.email}">${assistant.email}</a></p>
+            <p class="office">Office Number: ${assistant.officeNumber}">${assistant.officeNumber}</a></p>
         </div>
     </div>
-    `
+    </div>`
 };
 
 generateHTML = (data) => {
