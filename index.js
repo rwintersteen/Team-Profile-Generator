@@ -1,45 +1,46 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Dentist = require('./lib/Dentist');
-const DentalHygienist = require('./lib/DentalHygienst');
+const DentalHygienist = require('./lib/DentalHygienist');
 const DentalAssistant = require('./lib/DentalAssistant');
 const path = require('path');
 
 const OUTPUT_DIR=path.resolve(__dirname, 'output');
 const outputPath = path.join(OUTPUT_DIR, 'team.HTML');
-const render = require('./source/generateHTML');
+const render = require('./src/generateHTML');
 
 const teamMembers = [];
 
 function teamQuestions() {
-function createDentist() {
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                message: "What is the dentist's name?",
-                name: dentistName,
-            },
-            {
-                type: 'input',
-                message: "What is the dentist's email?",
-                name: dentistEmail,
-            },
-            {
-                type: 'input',
-                message: "What is the dentist's office number?",
-                name: dentistOfficeNumber,
-            },
-            {
-                type: 'input',
-                message: "What is the dentist's credential?",
-                name: dentistCredential,
-            }
-        ]) .then(answers => {
-            const dentist = new Dentist(answers.dentistName, answers.dentistEmail, answers.dentistOfficeNumber, answers.dentistCredential)
-            teamMembers.push(dentist)
-            createTeam()
-        })
+    
+        function createDentist() {
+            inquirer
+                .prompt([
+                    {
+                        type: 'input',
+                        message: "What is the dentist's name?",
+                        name: 'dentistName',
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the dentist's email?",
+                        name: 'dentistEmail',
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the dentist's office number?",
+                        name: 'dentistOfficeNumber',
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the dentist's credential?",
+                        name: 'dentistCredential',
+                    }
+                ]).then(answers => {
+                    const dentist = new Dentist(answers.dentistName, answers.dentistEmail, answers.dentistOfficeNumber, answers.dentistCredential)
+                    teamMembers.push(dentist)
+                    createTeam()
+                })
         function createTeam(){
             inquirer.prompt([
                 {

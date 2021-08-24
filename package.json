@@ -7,7 +7,6 @@
     "lib": "lib"
   },
   "dependencies": {
-    "express": "^4.17.1",
     "inquirer": "^8.1.2",
     "jest": "^27.0.6"
   },
